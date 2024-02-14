@@ -1,7 +1,10 @@
 # Piotr Marendowski, GNU GPL v.3
 # Konwersja systemow liczbowych
 
-# Uzywajac wbudowanych funkji
+#################################################
+# Uzywajac wbudowanych funkji konwersji         #
+#################################################
+
 # DEC -> BIN,
 def dec_to_bin(dec_list):
     bin_list = []
@@ -129,17 +132,38 @@ def bin_to_oct(bin_list):
 #################################################
 # Uzywajac wlasnych funkji konwersji            #
 #################################################
+
 # DEC -> BIN,
+def dec_to_bin_konwersja(liczba):
+    liczba_bin = ""
+
+    # Dopoki liczba nie jest w najprostrzej postaci,
+    # dopisz liczbe zmodulowana przez 2,
+    # dziel liczbe przez 2,
+    # i tak w kolko
+    #
+    # Podzielna = 0, czyli nie dodaje sie
+    # Niepodzielna = 1, czyli dodaje sie tworzac liczbe,
+    # np. 10100 = 20 (16 + 4)
+    while liczba > 0:
+        # print(f"liczba: {liczba}")
+        liczba_bin = str(liczba % 2) + liczba_bin
+        # // znaczy podziel i zaookragl (funkcja floor)
+        liczba = liczba // 2
+        # print(f"liczba_bin: {liczba_bin}")
+
+    return liczba_bin
+
+
 def dec_to_bin2(dec_list):
     bin_list = []
 
-    # Funkcja bin(int)[2:]
-    # [2:] usuwa 2 pierwsze miejsca (0b)
-    for num in dec_list:
-        bin_list.append(bin(num)[2:])
-
     print("DEC -> BIN:")
-    print("  ".join(bin_list))
+
+    for num in dec_list:
+        bin_num = dec_to_bin_konwersja(num)
+        bin_list.append(bin_num)
+        print(bin_num, end="  ")
 
     return bin_list
 
@@ -270,6 +294,7 @@ def main():
 
     # Uzywajac wbudowanych funkji
     print("Uzywajac wbudowanych funkji:")
+    dec_to_bin_konwersja(10)
     # DEC -> BIN,
     bin_list = dec_to_bin(dec_list)
     # BIN -> DEC,
@@ -298,26 +323,26 @@ def main():
     print("Uzywajac wlasnych funkji konwersji:")
     # DEC -> BIN,
     bin_list = dec_to_bin2(dec_list)
-    # BIN -> DEC,
-    bin_to_dec2(bin_list)
-    # DEC -> HEX,
-    hex_list = dec_to_hex2(dec_list)
-    # HEX -> DEC,
-    hex_to_dec2(hex_list)
-    # DEC -> OCT,
-    oct_list = dec_to_oct2(dec_list)
-    # OCT -> DEC,
-    oct_to_dec2(oct_list)
-    # HEX -> BIN,
-    hex_to_bin2(hex_list)
-    # BIN -> HEX,
-    bin_to_hex2(bin_list)
-    # OCT -> BIN,
-    oct_to_bin2(oct_list)
-    # BIN -> OCT
-    bin_to_oct2(bin_list)
-    # DEC -> p (dowolny)
-    dec_to_p(dec_list)
+    # # BIN -> DEC,
+    # bin_to_dec2(bin_list)
+    # # DEC -> HEX,
+    # hex_list = dec_to_hex2(dec_list)
+    # # HEX -> DEC,
+    # hex_to_dec2(hex_list)
+    # # DEC -> OCT,
+    # oct_list = dec_to_oct2(dec_list)
+    # # OCT -> DEC,
+    # oct_to_dec2(oct_list)
+    # # HEX -> BIN,
+    # hex_to_bin2(hex_list)
+    # # BIN -> HEX,
+    # bin_to_hex2(bin_list)
+    # # OCT -> BIN,
+    # oct_to_bin2(oct_list)
+    # # BIN -> OCT
+    # bin_to_oct2(bin_list)
+    # # DEC -> p (dowolny)
+    # dec_to_p(dec_list)
 
 
 if __name__ == "__main__":

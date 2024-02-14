@@ -2,7 +2,7 @@
 <h1 align="center"> Algorytmy wymienione w wymaganiach </h1>
 
 1. __algorytmy na liczbach całkowitych:__
-   - a) reprezentacja liczb w dowolnym systemie pozycyjnym, w tym w dwójkowym i szesnastkowym,
+   - a) reprezentacja liczb w dowolnym systemie pozycyjnym, w tym w dwójkowym i szesnastkowym (uzywając własnych i wbudowanych funkcji),
    - b) sprawdzanie, czy liczba jest liczbą pierwszą,
    - c) sprawdzanie, czy liczba jest liczbą doskonała,
    - d) rozkładanie liczby na czynniki pierwsze,
