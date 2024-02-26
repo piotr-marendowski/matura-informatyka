@@ -36,7 +36,7 @@ def parzysta_ciag(n):
                 for j in range(i, len(numery), i):
                     numery[j] = False
 
-        print(f"{i}: {numery}")
+        # print(f"{i}: {numery}")
 
     return pierwsze
 
